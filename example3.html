@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-image"></div>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="form-container">
+        <div class="form-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" class="form-control" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="login()">Login</button>
+            </form>
+            <p class="text-center mt-3">
+                Don’t have an account? <a href="#" onclick="showSignupPage()">Sign up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Page -->
+    <div id="signupPage" class="form-container hidden">
+        <div class="form-box">
+            <h2>Signup</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" class="form-control" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" class="form-control" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" class="form-control" id="signupPassword" required>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" onclick="signup()">Signup</button>
+            </form>
+            <p class="text-center mt-3">
+                Already have an account? <a href="#" onclick="showLoginPage()">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboardPage" class="container-fluid mt-4 hidden">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Student Management</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action" onclick="showStudentSection()">Students</a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="showTeacherSection()">Student Entry</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- Student Management Section -->
+                <div id="studentSection" class="hidden">
+                    <h3 class="text-light">Manage Students</h3>
+                    <form id="studentForm">
+                        <div class="form-group">
+                            <label for="studentName" class="text-light">Name</label>
+                            <input type="text" class="form-control" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob" class="text-light">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentEmail" class="text-light">Email</label>
+                            <input type="email" class="form-control" id="studentEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="text-light">Phone</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hobby" class="text-light">Hobby</label>
+                            <input type="text" class="form-control" id="hobby">
+                        </div>
+                        <div class="form-group">
+                            <label for="degree" class="text-light">Degree</label>
+                            <input type="text" class="form-control" id="degree">
+                        </div>
+                        <button type="button" onclick="addStudent()" class="btn btn-primary">Add Student</button>
+                    </form>
+                    <!-- <h3 class="mt-4 text-light">Student List</h3> -->
+                    <!-- <table class="table" id="studentTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Hobby</th>
+                                <th>Degree</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             Student entries go here 
+                        </tbody>
+                    </table> -->
+                </div>
+
+                <!-- Teacher Management Section (for future expansion) -->
+                <div id="teacherSection" class="hidden">
+                    <h3 class="text-light">Students Data</h3>
+                    <p class="text-light">This section will allow you to view student data.</p>
+                    <label class="text-light">Search</label>
+                    <input type="text" id="search" onkeyup="searchStudent()">
+                     <table class="table" id="studentTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Hobby</th>
+                                <th>Degree</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+<!--                         
+                             Student entries go here  -->
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+       
