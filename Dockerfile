@@ -8,4 +8,4 @@ COPY . /usr/share/nginx/html
 EXPOSE 80
 
 # Start NGINX when the container runs
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["sh", "-c", "echo 'Starting NGINX...'; nginx -g 'daemon off;'"]
